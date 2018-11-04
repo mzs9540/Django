@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MZS</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+    <h1>My Django Project!</h1>
+    <h2>Here are your access records</h2>
+
+    <div class="django">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date Access</th>
+                </thead>
+
+                {% for acc in access_records %}
+                    <tr>
+                        <td>{{ acc.name }}</td>
+                        <td>{{ acc.date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No Access record are found!</p>
+        {% endif %}
+    </div>
+</body>
+</html>
